@@ -60,6 +60,8 @@ expect "Enter the new Password"
 send "getcamera\r"
 expect "Press any key to continue"
 send "\r"
+expect "Select an Option:"
+send "\x03"
 expect eof
 EOF
 echo "Expect script created."
