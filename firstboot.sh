@@ -38,7 +38,7 @@ echo "Download complete."
 
 # Extract the tarball
 echo "Extracting AccessPopup tarball..."
-tar -xvzf ./AccessPopup.tar.gz
+sudo tar -xvzf ./AccessPopup.tar.gz
 echo "Extraction complete."
 
 # Navigate to the AccessPopup directory
@@ -69,12 +69,12 @@ echo "Expect script created."
 
 # Make the expect script executable
 echo "Making expect script executable..."
-chmod +x install_expect.sh
+sudo chmod +x install_expect.sh
 echo "Expect script is now executable."
 
 # Run the expect script
 echo "Running expect script..."
-./install_expect.sh
+sudo ./install_expect.sh
 echo "Expect script execution complete."
 
 # Clean up by removing the tarball, AccessPopup directory, and expect script
@@ -87,7 +87,7 @@ echo "Cleanup complete."
 
 # Remove this script to prevent it from running on subsequent boots
 echo "Removing firstboot.sh to prevent re-execution..."
-rm -f /boot/firstboot.sh
+rm -f firstboot.sh
 echo "firstboot.sh removed."
 
 # Reboot the system
