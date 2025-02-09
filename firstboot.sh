@@ -6,13 +6,9 @@ echo "Starting initialization script..."
 echo "Enter WLAN Country: "
 read wifi_country
 echo "Setting Wi-Fi country code to $wifi_country..."
-sudo tee /etc/wpa_supplicant/wpa_supplicant.conf <<EOF
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=$wifi_country
-EOF
-sudo systemctl restart wpa_supplicant
-echo "Wi-Fi country code set."
+sudo raspi-config nonint do_wifi_country $wifi_country
+echo "Setting automatic login behaviour..."
+sudo raspi-config nonint do_boot_behaviour B2
 
 # Update package list and install Apache2
 echo "Updating package list..."
