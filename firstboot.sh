@@ -3,12 +3,13 @@
 echo "Starting initialization script..."
 
 # Set Wi-Fi Country Code
-WIFI_COUNTRY="HU"  # Replace 'HU' with your ISO 3166-1 alpha-2 country code
-echo "Setting Wi-Fi country code to $WIFI_COUNTRY..."
+echo "Enter WLAN Country: "
+read wifi_country
+echo "Setting Wi-Fi country code to $wifi_country..."
 sudo tee /etc/wpa_supplicant/wpa_supplicant.conf <<EOF
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
-country=$WIFI_COUNTRY
+country=$wifi_country
 EOF
 sudo systemctl restart wpa_supplicant
 echo "Wi-Fi country code set."
